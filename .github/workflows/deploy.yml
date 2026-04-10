@@ -22,7 +22,15 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material mkdocstrings ghp-import
+        run: |
+          pip install mkdocs
+          pip install mkdocs-material
+          pip install mkdocstrings
+          pip install mkdocs-glightbox
+          pip install mkdocs-table-of-figures-plugin
+          pip install mkdocs-macros-plugin
+          pip install mkdocs-with-pdf
+          pip install ghp-import
 
       - name: Build Certus Flex
         run: python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
