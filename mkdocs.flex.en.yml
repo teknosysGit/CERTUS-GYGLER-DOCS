@@ -53,7 +53,39 @@ plugins:
 
   # ✅ FIX: Always enable PDF generation
   - with-pdf:
+      enabled_if_env: ENABLE_PDF_EXPORT
+
+      # -------------------------------------------------------
+      # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
+      # -------------------------------------------------------
       output_path: pdf/User_Manual_CERTUS_FLEX_EN.pdf
+
+      # -------------------------------------------------------
+      # COVER PAGE (THIS FIXES "None" + CREATES DESIGN)
+      # -------------------------------------------------------
+      cover: true
+      cover_title: "User Manual"
+      cover_subtitle: "CERTUS FLEX"
+      cover_logo: "_shared_assets/company_logo.png"
+
+      # -------------------------------------------------------
+      # METADATA (THIS FIXES EMPTY VALUES)
+      # -------------------------------------------------------
+      metadata:
+        title: "User Manual - CERTUS FLEX"
+        author: "Fritz Gyger AG"
+        subject: "CERTUS FLEX Documentation"
+
+      # -------------------------------------------------------
+      # PDF STRUCTURE SETTINGS
+      # -------------------------------------------------------
+      toc_title: "Table of Contents"
+      toc_level: 3
+
+      # -------------------------------------------------------
+      # STYLING (OPTIONAL BUT IMPORTANT)
+      # -------------------------------------------------------
+      css: docs/configurations/stylesheets/typography.css
 
 extra:
   alternate:
