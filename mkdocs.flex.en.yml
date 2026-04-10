@@ -64,6 +64,9 @@ plugins:
       # COVER PAGE (THIS FIXES "None" + CREATES DESIGN)
       # -------------------------------------------------------
       cover: true
+      back_cover: false
+      author: Fritz Gyger AG
+      copyright: "© Fritz Gyger AG. All rights reserved."
       cover_title: "User Manual"
       cover_subtitle: "CERTUS FLEX"
       cover_logo: "_shared_assets/company_logo.png"
@@ -81,11 +84,26 @@ plugins:
       # -------------------------------------------------------
       toc_title: "Table of Contents"
       toc_level: 3
+      ordered_chapter_level: 3
 
       # -------------------------------------------------------
       # Custom Template Path
       # -------------------------------------------------------
       custom_template_path: docs/configurations/templates/flex-pdf/
+
+      # -------------------------------------------------------
+      # Exclude children topics and pages
+      # -------------------------------------------------------
+      excludes_children:
+        # Path relative to docs_dir (docs/)
+        - 'flex/en/table_of_figures.md'
+      exclude_pages:
+        - '^$'
+        - 'flex/en/release_notes/*.md'
+      # -------------------------------------------------------
+      # showing topic anchors
+      # -------------------------------------------------------
+      show_anchors: true
 
 extra:
   alternate:
