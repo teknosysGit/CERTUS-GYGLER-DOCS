@@ -13,15 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ─────────────────────────────────────────────
+      # Checkout repository
+      # ─────────────────────────────────────────────
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # ─────────────────────────────────────────────
+      # Set up Python
+      # ─────────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # Install system libraries required for PDF generation (WeasyPrint)
+      # ─────────────────────────────────────────────
+      # Install system dependencies (REQUIRED for PDF)
+      # These are needed by WeasyPrint (mkdocs-with-pdf)
+      # ─────────────────────────────────────────────
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -31,9 +40,12 @@ jobs:
             libpangocairo-1.0-0 \
             libgdk-pixbuf2.0-0 \
             libffi-dev \
-            shared-mime-info
+            shared-mime-info \
+            fonts-dejavu-core
 
+      # ─────────────────────────────────────────────
       # Install Python dependencies
+      # ─────────────────────────────────────────────
       - name: Install Python dependencies
         run: |
           pip install mkdocs
@@ -45,12 +57,22 @@ jobs:
           pip install mkdocs-with-pdf
           pip install ghp-import
 
+      # ─────────────────────────────────────────────
+      # Build Certus Flex (ENABLE PDF GENERATION)
+      # IMPORTANT: ENABLE_PDF_EXPORT is required
+      # ─────────────────────────────────────────────
       - name: Build Certus Flex
-        run: python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
+        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
+      # ─────────────────────────────────────────────
+      # Build Certus Rivo (ENABLE PDF GENERATION)
+      # ─────────────────────────────────────────────
       - name: Build Certus Rivo
-        run: python -m mkdocs build -f mkdocs.rivo.en.yml -d site/certus-rivo
+        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.rivo.en.yml -d site/certus-rivo
 
+      # ─────────────────────────────────────────────
+      # Generate root index page
+      # ─────────────────────────────────────────────
       - name: Generate combined index
         run: |
           mkdir -p site
@@ -74,5 +96,8 @@ jobs:
           </html>
           EOF
 
+      # ─────────────────────────────────────────────
+      # Deploy to GitHub Pages (gh-pages branch)
+      # ─────────────────────────────────────────────
       - name: Deploy to GitHub Pages
         run: ghp-import -n -p -f site
