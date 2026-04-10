@@ -9,7 +9,7 @@ INHERIT: mkdocs.base.yml
 
 site_name: "Certus Knowledgebase - CERTUS RIVO"
 site_description: "User Manual for CERTUS RIVO by Fritz Gyger AG"
-site_url: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/"
+site_url: https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/
 site_dir: site
 
 theme:
