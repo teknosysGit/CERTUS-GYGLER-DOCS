@@ -53,7 +53,41 @@ plugins:
 
   # Always enable PDF generation (GitHub Actions does not set env vars)
   - with-pdf:
+       # ✅ FIX: Always enable PDF generation
+  - with-pdf:
+      enabled_if_env: ENABLE_PDF_EXPORT
+
+      # -------------------------------------------------------
+      # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
+      # -------------------------------------------------------
       output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
+
+      # -------------------------------------------------------
+      # COVER PAGE (THIS FIXES "None" + CREATES DESIGN)
+      # -------------------------------------------------------
+      cover: true
+      cover_title: "User Manual"
+      cover_subtitle: "CERTUS RIVO"
+      cover_logo: "_shared_assets/company_logo.png"
+
+      # -------------------------------------------------------
+      # METADATA (THIS FIXES EMPTY VALUES)
+      # -------------------------------------------------------
+      metadata:
+        title: "User Manual - CERTUS RIVO"
+        author: "Fritz Gyger AG"
+        subject: "CERTUS RIVO Documentation"
+
+      # -------------------------------------------------------
+      # PDF STRUCTURE SETTINGS
+      # -------------------------------------------------------
+      toc_title: "Table of Contents"
+      toc_level: 3
+
+      # -------------------------------------------------------
+      # Custom Template Path
+      # -------------------------------------------------------
+      custom_template_path: docs/configurations/templates/rivo-pdf/
 
 extra:
   alternate:
@@ -64,8 +98,8 @@ extra:
       link: /CERTUS-GYGER-DOCS/certus-flex/
       lang: de
 
-  companyLogoURL: "http://mkdocsdemo.teknosyssolutions.com/_shared_assets/company_logo_light.png"
-  pdfHeaderLogoURL: "http://mkdocsdemo.teknosyssolutions.com/_shared_assets/company_logo_small.png"
+  companyLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/_shared_assets/company_logo_light.png"
+  pdfHeaderLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/_shared_assets/company_logo_small.png"
 
   ui_labels:
     en:
