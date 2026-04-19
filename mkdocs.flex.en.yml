@@ -156,7 +156,7 @@ extra:
 
 nav:
   - Home: common_content/introduction.md
-  - Table of Figures: en/products/certus-flex/table_of_figures.md
+ # - Table of Figures: en/products/certus-flex/table_of_figures.md
 
   - Products:
       - Certus Flex:
