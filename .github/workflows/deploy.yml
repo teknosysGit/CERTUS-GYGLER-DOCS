@@ -68,10 +68,16 @@ jobs:
      # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Find all ampersand issues
+      - name: Verify fix and check built HTML
         run: |
-          echo "=== All links containing & in markdown files ==="
-          grep -rn "&" docs/en/products/certus-flex/*.md | grep -v "binary"
+          echo "=== Last line of transportation_storage.md ==="
+          tail -5 docs/en/products/certus-flex/transportation_storage.md
+
+          echo "=== Check if old & link still exists ==="
+          grep -rn "decommissioning_&" docs/en/products/certus-flex/
+
+          echo "=== Check built HTML for transportation page ==="
+          cat site/certus-flex/en/products/certus-flex/transportation_storage/index.html | grep -i "decommission"
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
