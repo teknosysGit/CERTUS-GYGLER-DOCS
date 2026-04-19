@@ -65,30 +65,13 @@ jobs:
       - name: Build Certus Flex
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-      # ─────────────────────────────────────────────
-      # Build Certus Flex (PDF ENABLED)
-      # ─────────────────────────────────────────────
-      - name: Build Certus Flex
-        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
-
-      # ─────────────────────────────────────────────
+     # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Debug memory and PDF
+      - name: Debug page 18 content
         run: |
-          echo "=== System memory ==="
-          free -h
-          
-          echo "=== PDF page count ==="
-          pip install pypdf --break-system-packages -q
-          python3 -c "
-          from pypdf import PdfReader
-          r = PdfReader('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf')
-          print(f'Total pages in PDF: {len(r.pages)}')
-          "
-          
-          echo "=== Total image sizes ==="
-          du -sh docs/en/products/certus-flex/_assets/
+          echo "=== Full content of transportation_storage.md ==="
+          cat docs/en/products/certus-flex/transportation_storage.md
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
