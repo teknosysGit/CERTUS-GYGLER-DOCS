@@ -66,24 +66,29 @@ jobs:
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
       # ─────────────────────────────────────────────
+      # Build Certus Flex (PDF ENABLED)
+      # ─────────────────────────────────────────────
+      - name: Build Certus Flex
+        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
+
+      # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Debug file contents
+      - name: Debug memory and PDF
         run: |
-          echo "=== Line counts of files after Safety ==="
-          wc -l docs/en/products/certus-flex/transportation_storage.md
-          wc -l docs/en/products/certus-flex/specifications_dimensions.md
-          wc -l docs/en/products/certus-flex/specifications_device_data.md
-          wc -l docs/en/products/certus-flex/assembly_and_operation.md
-          wc -l docs/en/products/certus-flex/certus_controls.md
-          wc -l docs/en/products/certus-flex/operations.md
-          wc -l docs/en/products/certus-flex/troubleshooting.md
-          wc -l docs/en/products/certus-flex/maintenance.md
-          wc -l docs/en/products/certus-flex/decommissioning_\&_disposal.md
-          wc -l docs/en/products/certus-flex/start_up.md
-
-          echo "=== Checking for macro/variable errors in files ==="
-          grep -rn "{{" docs/en/products/certus-flex/ | grep -v ".git"
+          echo "=== System memory ==="
+          free -h
+          
+          echo "=== PDF page count ==="
+          pip install pypdf --break-system-packages -q
+          python3 -c "
+          from pypdf import PdfReader
+          r = PdfReader('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf')
+          print(f'Total pages in PDF: {len(r.pages)}')
+          "
+          
+          echo "=== Total image sizes ==="
+          du -sh docs/en/products/certus-flex/_assets/
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
