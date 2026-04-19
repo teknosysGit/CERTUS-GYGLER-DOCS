@@ -88,4 +88,4 @@ The packaging should be stored under the following conditions:
 !!! note
     When stored for more than three months, regularly check the general distance between all items and the packaging.
 
-For more information, see [Storing the Unit](decommissioning_&_disposal.md#storing-the-unit "Decommissioning and Disposal").
+For more information, see [Storing the Unit](decommissioning_disposal.md#storing-the-unit "Decommissioning and Disposal").
