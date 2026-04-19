@@ -73,12 +73,13 @@ jobs:
       - name: Build Certus Flex
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-     # ─────────────────────────────────────────────
+    # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Find shared assets references
+      - name: Check PDF pages
         run: |
-          grep -rn "\.\./\.\./\.\." docs/en/products/certus-flex/*.md
+          pip install pymupdf --break-system-packages -q
+          python3 -c "import fitz; doc=fitz.open('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf'); print('Total pages:', doc.page_count)"
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
