@@ -68,16 +68,21 @@ jobs:
      # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Verify fix and check built HTML
+      - name: Check built HTML
         run: |
-          echo "=== Last line of transportation_storage.md ==="
-          tail -5 docs/en/products/certus-flex/transportation_storage.md
-
-          echo "=== Check if old & link still exists ==="
-          grep -rn "decommissioning_&" docs/en/products/certus-flex/
-
-          echo "=== Check built HTML for transportation page ==="
-          cat site/certus-flex/en/products/certus-flex/transportation_storage/index.html | grep -i "decommission"
+          echo "=== Check transportation page in built site ==="
+          grep -i "decommission" site/certus-flex/en/products/certus-flex/transportation_storage/index.html || echo "NOT FOUND"
+          
+          echo "=== Check PDF page count ==="
+          python3 -c "
+          from pypdf import PdfReader
+          r = PdfReader('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf')
+          print(f'Total pages: {len(r.pages)}')
+          for i, page in enumerate(r.pages):
+            text = page.extract_text()
+            if text:
+              print(f'Page {i+1}: {text[:80].strip()}')
+          "
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
