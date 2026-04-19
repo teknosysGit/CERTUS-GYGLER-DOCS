@@ -59,6 +59,14 @@ jobs:
           pip install mkdocs-with-pdf
           pip install ghp-import
 
+    # ─────────────────────────────────────────────
+      # Fix shared assets paths for PDF
+      # ─────────────────────────────────────────────
+      - name: Fix shared assets paths
+        run: |
+          find docs/en/products/certus-flex/ -name "*.md" -exec sed -i 's|../../../_shared_assets/|http://mkdocsdemo.teknosyssolutions.com/certus-flex/_shared_assets/|g' {} \;
+          find docs/en/products/certus-rivo/ -name "*.md" -exec sed -i 's|../../../_shared_assets/|http://mkdocsdemo.teknosyssolutions.com/certus-rivo/_shared_assets/|g' {} \;
+      
       # ─────────────────────────────────────────────
       # Build Certus Flex (PDF ENABLED)
       # ─────────────────────────────────────────────
