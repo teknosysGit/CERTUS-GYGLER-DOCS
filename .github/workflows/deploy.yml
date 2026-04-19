@@ -65,13 +65,16 @@ jobs:
       - name: Build Certus Flex
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-     # ─────────────────────────────────────────────
+     ## ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Check PDF pages
+      - name: Check safety file
         run: |
-          pip install pymupdf --break-system-packages
-          python3 -c "import fitz; doc=fitz.open('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf'); print('Total pages:', doc.page_count); [print(f'Page {i+1}:', doc[i].get_text()[:80].strip()) for i in range(doc.page_count)]"
+          echo "=== Last 30 lines of safety.md ==="
+          tail -30 docs/en/products/certus-flex/safety.md
+          
+          echo "=== Check for special characters in safety.md ==="
+          grep -n "&\|<\|>\|{%" docs/en/products/certus-flex/safety.md | tail -20
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
