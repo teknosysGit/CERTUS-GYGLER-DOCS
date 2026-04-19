@@ -177,5 +177,5 @@ With the `Air On` or `Park` commands, it may be necessary to acknowledge an erro
 
 A corresponding dialog is displayed.
 
-![{{ variables.product.name.en }} Web Control Sample Error Message](_assets/screenshots/certus_flex_web_control_sample_error_message.png "WEB CONTROL, error message (example)"){ .img-medium .on-glb width="350" height="150 }
+![{{ variables.product.name.en }} Web Control Sample Error Message](_assets/screenshots/certus_flex_web_control_sample_error_message.png "WEB CONTROL, error message (example)"){ .img-medium .on-glb width="350" height="150"}
 
