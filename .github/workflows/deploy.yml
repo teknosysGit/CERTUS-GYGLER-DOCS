@@ -68,17 +68,10 @@ jobs:
      # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Check fix
+      - name: Check safety file full
         run: |
-          echo "=== Check betterem setting ==="
-          grep -n "betterem\|smart_enable" mkdocs.base.yml
-          
-          echo "=== Check safety HTML for broken URLs ==="
-          grep -n "__http" site/certus-flex/en/products/certus-flex/safety/index.html | head -5
-          
-          echo "=== PDF pages ==="
-          pip install pymupdf --break-system-packages -q
-          python3 -c "import fitz; doc=fitz.open('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf'); print('Total pages:', doc.page_count); [print(f'Page {i+1}:', doc[i].get_text()[:80].strip()) for i in range(doc.page_count)]"
+          echo "=== Full content of safety.md ==="
+          cat docs/en/products/certus-flex/safety.md
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
