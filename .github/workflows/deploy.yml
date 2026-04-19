@@ -68,10 +68,13 @@ jobs:
      # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Debug page 18 content
+      - name: Find all references to decommissioning file
         run: |
-          echo "=== Full content of transportation_storage.md ==="
-          cat docs/en/products/certus-flex/transportation_storage.md
+          echo "=== All files referencing decommissioning_&_disposal ==="
+          grep -rn "decommissioning_&_disposal" docs/
+          
+          echo "=== All files referencing decommissioning in nav ymls ==="
+          grep -rn "decommissioning" mkdocs.flex.en.yml mkdocs.rivo.en.yml
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
