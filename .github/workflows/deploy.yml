@@ -65,16 +65,13 @@ jobs:
       - name: Build Certus Flex
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-     ## ─────────────────────────────────────────────
+     # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Check safety file
+      - name: Check safety HTML
         run: |
-          echo "=== Last 30 lines of safety.md ==="
-          tail -30 docs/en/products/certus-flex/safety.md
-          
-          echo "=== Check for special characters in safety.md ==="
-          grep -n "&\|<\|>\|{%" docs/en/products/certus-flex/safety.md | tail -20
+          echo "=== Last 50 lines of built safety HTML ==="
+          tail -50 site/certus-flex/en/products/certus-flex/safety/index.html
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
