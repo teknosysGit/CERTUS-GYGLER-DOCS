@@ -68,10 +68,9 @@ jobs:
      # ─────────────────────────────────────────────
       # DEBUG - Remove after fixing the issue
       # ─────────────────────────────────────────────
-      - name: Check safety file full
+      - name: Find shared assets references
         run: |
-          echo "=== Full content of safety.md ==="
-          cat docs/en/products/certus-flex/safety.md
+          grep -rn "\.\./\.\./\.\." docs/en/products/certus-flex/*.md
 
       # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
