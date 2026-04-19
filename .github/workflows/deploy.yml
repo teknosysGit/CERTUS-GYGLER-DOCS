@@ -13,23 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ─────────────────────────────────────────────
-      # Checkout repository
-      # ─────────────────────────────────────────────
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # ─────────────────────────────────────────────
-      # Set up Python environment
-      # ─────────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # ─────────────────────────────────────────────
-      # Install system dependencies REQUIRED for PDF
-      # ─────────────────────────────────────────────
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -45,9 +36,6 @@ jobs:
             fonts-liberation \
             fonts-freefont-ttf
 
-      # ─────────────────────────────────────────────
-      # Install Python dependencies
-      # ─────────────────────────────────────────────
       - name: Install Python dependencies
         run: |
           pip install mkdocs
@@ -59,37 +47,17 @@ jobs:
           pip install mkdocs-with-pdf
           pip install ghp-import
 
-    # ─────────────────────────────────────────────
-      # Fix shared assets paths for PDF
-      # ─────────────────────────────────────────────
       - name: Fix shared assets paths
         run: |
           find docs/en/products/certus-flex/ -name "*.md" -exec sed -i 's|../../../_shared_assets/|http://mkdocsdemo.teknosyssolutions.com/certus-flex/_shared_assets/|g' {} \;
           find docs/en/products/certus-rivo/ -name "*.md" -exec sed -i 's|../../../_shared_assets/|http://mkdocsdemo.teknosyssolutions.com/certus-rivo/_shared_assets/|g' {} \;
-      
-      # ─────────────────────────────────────────────
-      # Build Certus Flex (PDF ENABLED)
-      # ─────────────────────────────────────────────
+
       - name: Build Certus Flex
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-    # ─────────────────────────────────────────────
-      # DEBUG - Remove after fixing the issue
-      # ─────────────────────────────────────────────
-      - name: Check PDF pages
-        run: |
-          pip install pymupdf --break-system-packages -q
-          python3 -c "import fitz; doc=fitz.open('site/certus-flex/pdf/User_Manual_CERTUS_FLEX_EN.pdf'); print('Total pages:', doc.page_count)"
-
-      # ─────────────────────────────────────────────
-      # Build Certus Rivo (PDF ENABLED)
-      # ─────────────────────────────────────────────
       - name: Build Certus Rivo
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.rivo.en.yml -d site/certus-rivo
 
-      # ─────────────────────────────────────────────
-      # Generate root index page
-      # ─────────────────────────────────────────────
       - name: Generate combined index
         run: |
           mkdir -p site
@@ -113,8 +81,5 @@ jobs:
           </html>
           EOF
 
-      # ─────────────────────────────────────────────
-      # Deploy to GitHub Pages
-      # ─────────────────────────────────────────────
       - name: Deploy to GitHub Pages
         run: ghp-import -n -p -f site
