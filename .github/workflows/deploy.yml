@@ -66,6 +66,26 @@ jobs:
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
       # ─────────────────────────────────────────────
+      # DEBUG - Remove after fixing the issue
+      # ─────────────────────────────────────────────
+      - name: Debug file contents
+        run: |
+          echo "=== Line counts of files after Safety ==="
+          wc -l docs/en/products/certus-flex/transportation_storage.md
+          wc -l docs/en/products/certus-flex/specifications_dimensions.md
+          wc -l docs/en/products/certus-flex/specifications_device_data.md
+          wc -l docs/en/products/certus-flex/assembly_and_operation.md
+          wc -l docs/en/products/certus-flex/certus_controls.md
+          wc -l docs/en/products/certus-flex/operations.md
+          wc -l docs/en/products/certus-flex/troubleshooting.md
+          wc -l docs/en/products/certus-flex/maintenance.md
+          wc -l docs/en/products/certus-flex/decommissioning_\&_disposal.md
+          wc -l docs/en/products/certus-flex/start_up.md
+
+          echo "=== Checking for macro/variable errors in files ==="
+          grep -rn "{{" docs/en/products/certus-flex/ | grep -v ".git"
+
+      # ─────────────────────────────────────────────
       # Build Certus Rivo (PDF ENABLED)
       # ─────────────────────────────────────────────
       - name: Build Certus Rivo
