@@ -53,10 +53,10 @@ plugins:
 
   # Always enable PDF generation (GitHub Actions does not set env vars)
   - with-pdf:
-       # ✅ FIX: Always enable PDF generation
-  - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
-
+      ordered_chapter_level: 0  # ← disable auto-numbering
+      heading_shift: false
+    
       # -------------------------------------------------------
       # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
       # -------------------------------------------------------
