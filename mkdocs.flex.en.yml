@@ -54,6 +54,9 @@ plugins:
   # ✅ FIX: Always enable PDF generation
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
+      debug_html: true
+      show_anchors: true
+      verbose: true
 
       # -------------------------------------------------------
       # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
