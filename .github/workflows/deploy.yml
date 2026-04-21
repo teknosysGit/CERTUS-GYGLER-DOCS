@@ -51,13 +51,6 @@ jobs:
       - name: Build Certus Flex
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-      - name: Upload Certus Flex build
-        uses: actions/upload-artifact@v4
-        with:
-          name: certus-flex-build
-          path: site/certus-flex/
-          retention-days: 7
-
       - name: Build Certus Rivo
         run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.rivo.en.yml -d site/certus-rivo
 
