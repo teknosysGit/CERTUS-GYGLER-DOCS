@@ -54,8 +54,10 @@ plugins:
   # Always enable PDF generation (GitHub Actions does not set env vars)
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
-      ordered_chapter_level: 0  # ← disable auto-numbering
+      # ordered_chapter_level: 0  # ← disable auto-numbering
       heading_shift: false
+      exclude:
+        - en/products/certus-rivo/table_of_figures.md
     
       # -------------------------------------------------------
       # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
@@ -139,6 +141,8 @@ extra:
   pdfDownloadPath: "pdf/User_Manual_CERTUS_RIVO_EN.pdf"
 
 nav:
+  - Home: common_content/introduction.md
+  - Table of Figures: en/products/certus-rivo/table_of_figures.md
   - Introduction: en/products/certus-rivo/about_this_document.md
   - Safety: en/products/certus-rivo/safety.md
   - Transportation and Storage: en/products/certus-rivo/transportation_storage.md
