@@ -55,9 +55,8 @@ plugins:
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
       # ordered_chapter_level: 0  # ← disable auto-numbering
-      heading_shift: false
-      exclude:
-        - en/products/certus-rivo/table_of_figures.md
+      heading_shift: true
+      exclude: en/products/certus-rivo/table_of_figures.md
     
       # -------------------------------------------------------
       # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
