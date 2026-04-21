@@ -158,9 +158,7 @@ extra:
   pdfDownloadPath: "pdf/User_Manual_CERTUS_FLEX_EN.pdf"
 
 nav:
-  - Introduction:
-    - Introduction: common_content/introduction.md
-    - Table of Figures: en/products/certus-flex/table_of_figures.md
+  - Introduction: common_content/introduction.md
   - About this Documentation: en/products/certus-flex/about_this_document.md
   - Safety: en/products/certus-flex/safety.md
   - Transportation and Storage: en/products/certus-flex/transportation_storage.md
