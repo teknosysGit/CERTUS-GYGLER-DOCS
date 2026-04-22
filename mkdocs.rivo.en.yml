@@ -165,8 +165,8 @@ nav:
   - Decommissioning: en/products/certus-rivo/decommissioning_disposal.md
   - Start-Up: en/products/certus-rivo/start_up.md
   - Appendix:
-      - Change Index: en/products/certus-rivo/appendix_change_index.md
-      - Document List: en/products/certus-rivo/appendix_document_list.md
-      - Web Control: en/products/certus-rivo/appendix_web_control.md
-      - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
-      - Glossary: common_content/glossary.md
+    - Change Index: en/products/certus-rivo/appendix_change_index.md
+    - Document List: en/products/certus-rivo/appendix_document_list.md
+    - Web Control: en/products/certus-rivo/appendix_web_control.md
+    - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
+    - Glossary: common_content/glossary.md
