@@ -415,7 +415,7 @@
       WeasyPrint needs a file:// absolute URL to load images in @page boxes.
       ▼ Replace the path below with the absolute path to your logo file ▼  */
     @top-left {
-      content: url("http://mkdocsdemo.teknosyssolutions.com/certus-flex/_shared_assets/company_logo_small.png");
+      content: url("https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/_shared_assets/company_logo_small.png");
       /* vertical-align:middle centres the image block within the 32mm margin area.
         Do NOT set line-height or padding-top here — they override the alignment. */
       vertical-align: middle;
@@ -505,7 +505,7 @@
     /* Top-Right: Company logo -----------------------------------------------
       Same file:// rule as @top-left above — update this path too.          */
     @top-right {
-      content: url("http://mkdocsdemo.teknosyssolutions.com/certus-flex/_shared_assets/company_logo_small.png");
+      content: url("https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/_shared_assets/company_logo_small.png");
       vertical-align: middle;
       text-align: right;
     }
