@@ -54,30 +54,55 @@ plugins:
       on_error_fail: false
       include_dir: docs/common_content
   - with-pdf:
+      enabled_if_env: ENABLE_PDF_EXPORT
+      debug_html: true
+      show_anchors: true
+      verbose: true
+
+      # -------------------------------------------------------
+      # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
+      # -------------------------------------------------------
+      output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
+
+      # -------------------------------------------------------
+      # COVER PAGE
+      # -------------------------------------------------------
       cover: true
       back_cover: false
-
       author: Fritz Gyger AG
       copyright: "© Fritz Gyger AG. All rights reserved."
-      cover_title: User Manual
-      cover_subtitle: With CERTUS CONTROL 2.1.19
-      custom_template_path: docs/configurations/templates/rivo-pdf/
-      toc_title: Table of Contents
-      pdf_guide_name: User Manual
-      pdf_product_name: CERTUS RIVO
-      pdf_product_version: V12.0
+      cover_title: "User Manual"
+      cover_subtitle: "CERTUS RIVO"
+      cover_logo: "_shared_assets/company_logo.png"
 
-      heading_shift: false
+      # -------------------------------------------------------
+      # METADATA
+      # -------------------------------------------------------
+      metadata:
+        title: "User Manual - CERTUS RIVO"
+        author: "Fritz Gyger AG"
+        subject: "CERTUS RIVO Documentation"
+
+      # -------------------------------------------------------
+      # PDF STRUCTURE SETTINGS
+      # -------------------------------------------------------
+      toc_title: "Table of Contents"
       toc_level: 3
       ordered_chapter_level: 3
+
+      # -------------------------------------------------------
+      # Custom Template Path
+      # -------------------------------------------------------
+      custom_template_path: docs/configurations/templates/rivo-pdf/
+
+      # -------------------------------------------------------
+      # Exclude children topics and pages
+      # -------------------------------------------------------
       excludes_children:
         - 'rivo/en/table_of_figures.md'
       exclude_pages:
         - '^$'
         - 'rivo/en/release_notes/*.md'
-      output_path: "pdf/User_Manual_CERTUS_RIVO_EN.pdf"
-      #enabled_if_env: ENABLE_PDF_EXPORT
-      show_anchors: true
 
 extra:
   alternate:
@@ -130,9 +155,8 @@ nav:
   - Introduction: en/products/certus-rivo/about_this_document.md
   - Safety: en/products/certus-rivo/safety.md
   - Transportation and Storage: en/products/certus-rivo/transportation_storage.md
-  - Technical Specifications:
-      - Dimensions: en/products/certus-rivo/specifications_dimensions.md
-      - Device Data: en/products/certus-rivo/specifications_device_data.md
+  - Dimensions: en/products/certus-rivo/specifications_dimensions.md
+  - Device Data: en/products/certus-rivo/specifications_device_data.md
   - Assembly and Operation: en/products/certus-rivo/assembly_and_operation.md
   - Certus Control: en/products/certus-rivo/certus_controls.md
   - Operation: en/products/certus-rivo/operations.md
