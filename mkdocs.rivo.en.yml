@@ -146,22 +146,32 @@ extra:
 nav:
   - Home: common_content/introduction.md
   - Table of Figures: en/products/certus-rivo/table_of_figures.md
-  - Introduction: en/products/certus-rivo/about_this_document.md
-  - Safety: en/products/certus-rivo/safety.md
-  - Transportation and Storage: en/products/certus-rivo/transportation_storage.md
-  - Technical Specifications:
-      - Dimensions: en/products/certus-rivo/specifications_dimensions.md
-      - Device Data: en/products/certus-rivo/specifications_device_data.md
-  - Assembly and Operation: en/products/certus-rivo/assembly_and_operation.md
-  - Certus Control: en/products/certus-rivo/certus_controls.md
-  - Operation: en/products/certus-rivo/operations.md
-  - Troubleshooting: en/products/certus-rivo/troubleshooting.md
-  - Maintenance: en/products/certus-rivo/maintenance.md
-  - Decommissioning: en/products/certus-rivo/decommissioning_disposal.md
-  - Start-Up: en/products/certus-rivo/start_up.md
-  - Appendix:
-      - Change Index: en/products/certus-rivo/appendix_change_index.md
-      - Document List: en/products/certus-rivo/appendix_document_list.md
-      - Web Control: en/products/certus-rivo/appendix_web_control.md
-      - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
-      - Glossary: common_content/glossary.md
+  - Products:
+    - Certus Rivo:
+      - Introduction: en/products/certus-rivo/about_this_document.md          
+      - Safety: en/products/certus-rivo/safety.md
+      - Transportation and Storage:
+          - Transportation: en/products/certus-rivo/transportation_storage.md
+      - Technical Specifications:
+          - Dimensions: en/products/certus-rivo/specifications_dimensions.md
+          - Device Data: en/products/certus-rivo/specifications_device_data.md
+      - Assembly and Operation:
+          - Assembly: en/products/certus-rivo/assembly_and_operation.md
+      - Certus Control:
+          - Certus Control: en/products/certus-rivo/certus_controls.md
+      - Operation:
+          - Operation: en/products/certus-rivo/operations.md
+      - Troubleshooting:
+          - Troubleshooting: en/products/certus-rivo/troubleshooting.md
+      - Maintenance:
+          - Maintenance: en/products/certus-rivo/maintenance.md
+      - Decommissioning:
+          - Decommissioning: en/products/certus-rivo/decommissioning_&_disposal.md
+      - Start-Up:
+          - Start Up: en/products/certus-rivo/start_up.md
+      - Appendix:
+          - Change Index: en/products/certus-rivo/appendix_change_index.md
+          - Document List: en/products/certus-rivo/appendix_document_list.md
+          - Web Control: en/products/certus-rivo/appendix_web_control.md
+          - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
+          - Glossary: common_content/glossary.md
