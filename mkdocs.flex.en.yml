@@ -117,9 +117,9 @@ extra:
       link: /CERTUS-GYGER-DOCS/certus-rivo/
       lang: de
 
-  companyLogoURL: "http://mkdocsdemo.teknosyssolutions.com/_shared_assets/company_logo_light.png"
-  pdfHeaderLogoURL: "http://mkdocsdemo.teknosyssolutions.com/_shared_assets/company_logo_small.png"
-  productImageURL: "http://mkdocsdemo.teknosyssolutions.com/_shared_assets/certus_flex.png"
+  companyLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/_shared_assets/company_logo_light.png"
+  pdfHeaderLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/_shared_assets/company_logo_small.png"
+  productImageURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/_shared_assets/certus_flex.png"
 
   ui_labels:
     en:
