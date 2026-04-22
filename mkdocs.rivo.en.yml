@@ -51,43 +51,49 @@ plugins:
       on_error_fail: false
       include_dir: docs/common_content
 
-  # Always enable PDF generation (GitHub Actions does not set env vars)
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
-      # ordered_chapter_level: 0  # ← disable auto-numbering
-      heading_shift: true
-      exclude: en/products/certus-rivo/table_of_figures.md
-    
-      # -------------------------------------------------------
-      # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
-      # -------------------------------------------------------
+      ordered_chapter_level: 0
+      heading_shift: false
+
+      # ✅ PDF-only navigation (Table of Figures excluded)
+      nav:
+        - Home: common_content/introduction.md
+        - Introduction: en/products/certus-rivo/about_this_document.md
+        - Safety: en/products/certus-rivo/safety.md
+        - Transportation and Storage: en/products/certus-rivo/transportation_storage.md
+        - Technical Specifications:
+            - Dimensions: en/products/certus-rivo/specifications_dimensions.md
+            - Device Data: en/products/certus-rivo/specifications_device_data.md
+        - Assembly and Operation: en/products/certus-rivo/assembly_and_operation.md
+        - Certus Control: en/products/certus-rivo/certus_controls.md
+        - Operation: en/products/certus-rivo/operations.md
+        - Troubleshooting: en/products/certus-rivo/troubleshooting.md
+        - Maintenance: en/products/certus-rivo/maintenance.md
+        - Decommissioning: en/products/certus-rivo/decommissioning_disposal.md
+        - Start-Up: en/products/certus-rivo/start_up.md
+        - Appendix:
+            - Change Index: en/products/certus-rivo/appendix_change_index.md
+            - Document List: en/products/certus-rivo/appendix_document_list.md
+            - Web Control: en/products/certus-rivo/appendix_web_control.md
+            - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
+            - Glossary: common_content/glossary.md
+
       output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
 
-      # -------------------------------------------------------
-      # COVER PAGE (THIS FIXES "None" + CREATES DESIGN)
-      # -------------------------------------------------------
       cover: true
       cover_title: "User Manual"
       cover_subtitle: "CERTUS RIVO"
       cover_logo: "_shared_assets/company_logo.png"
 
-      # -------------------------------------------------------
-      # METADATA (THIS FIXES EMPTY VALUES)
-      # -------------------------------------------------------
       metadata:
         title: "User Manual - CERTUS RIVO"
         author: "Fritz Gyger AG"
         subject: "CERTUS RIVO Documentation"
 
-      # -------------------------------------------------------
-      # PDF STRUCTURE SETTINGS
-      # -------------------------------------------------------
       toc_title: "Table of Contents"
       toc_level: 3
 
-      # -------------------------------------------------------
-      # Custom Template Path
-      # -------------------------------------------------------
       custom_template_path: docs/configurations/templates/rivo-pdf/
 
 extra:
@@ -136,7 +142,6 @@ extra:
   watermark: "SAMPLE"
   page_size: "A4"
 
-  # Must match with-pdf output_path
   pdfDownloadPath: "pdf/User_Manual_CERTUS_RIVO_EN.pdf"
 
 nav:
