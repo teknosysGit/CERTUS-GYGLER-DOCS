@@ -6,7 +6,7 @@ authors:
     - Reto Gyger
 date: February 2026
 docsite_url: https://docs.fgyger.com
-role:
+role: author
 ---
 # Document List
 
