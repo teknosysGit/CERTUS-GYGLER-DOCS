@@ -54,7 +54,7 @@
     /* Capture H1 number/text for header */
     string-set: h1_num counter(h1);
     string-set: h1_text content(text);
-    break-before: page; /* start each H1 on a new page for nice sections */
+    break-before: auto; /* start each H1 on a new page for nice sections */
 
   }
 
@@ -242,7 +242,7 @@
 
   /* Optional: force a page break before the list of figures */
   .md-content h1#list-of-figures {
-    page-break-before: always;
+    page-break-before: auto;
   }
 
   /* Hide the plugin-generated number */
@@ -605,3 +605,12 @@ table, .md-typeset table:not([class]) { color: #000; }
 .md-typeset table thead th, .md-typeset table tbody td { color: #000; }
 .md-typeset table, .md-typeset table th, .md-typeset table td { border-color: #0052cc; }
 /*figure figcaption, .img-caption { color: #4b5563 !important; }*/
+
+/* ✅ FIX: allow proper table breaking in PDF */
+table {
+  page-break-inside: auto;
+}
+
+tr {
+  page-break-inside: avoid;
+}
