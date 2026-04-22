@@ -61,11 +61,8 @@ plugins:
       cover_logo: "_shared_assets/company_logo.png"
       toc_title: "Table of Contents"
       toc_level: 3
-      ordered_chapter_level: 0
+      # ordered_chapter_level: 0
       custom_template_path: docs/configurations/templates/rivo-pdf/
-      exclude_pages:
-        - '^$'
-        - 'table.of.figures'
       excludes_children:
         - 'en/products/certus-rivo/table_of_figures.md'
 
