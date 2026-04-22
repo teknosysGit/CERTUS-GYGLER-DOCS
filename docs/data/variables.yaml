@@ -2,12 +2,12 @@
 company:
   name: "Fritz Gyger AG"
   website: "https://www.fgyger.ch"
-  logoURL: "http://mkdocsdemo.teknosyssolutions.com/_shared_assets/company_logo_light.png"
+  logoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/docs/_shared_assets/company_logo_light.png"
 site:
   title: "Certus Knowledgebase"
   tagline: "Streamlined onboarding with clear, task‑based flows and expert guidance."
   description: "Comprehensive documentation for Certus Flex and Certus Rivo dispensing systems, covering setup, operation, maintenance, and troubleshooting to empower users with expert guidance and support."
-  siteURL: "https://mkdocsdemo.teknosyssolutions.com"
+  siteURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/"
   authors:
     primary: "Docs Team"
     contributors: 
