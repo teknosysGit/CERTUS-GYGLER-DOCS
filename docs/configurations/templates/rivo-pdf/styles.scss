@@ -16,7 +16,7 @@
   color: #000;
 }
 
-/* ---------- Cover page — no header/footer, no top margin ---------- */
+/* ---------- Cover page — safety net (cover.html uses @page cover) ---------- */
 @page :first {
   margin-top: 0;
   @top-left      { content: none; }
@@ -30,7 +30,7 @@
 /* ---------- LEFT pages (even) ---------- */
 @page :left {
   @top-left {
-    content: url("http://mkdocsdemo.teknosyssolutions.com/certus-rivo/_shared_assets/company_logo_small.png");
+    content: url("https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/_shared_assets/company_logo_small.png");
     vertical-align: middle;
     text-align: left;
   }
@@ -85,7 +85,7 @@
     vertical-align: middle;
   }
   @top-right {
-    content: url("http://mkdocsdemo.teknosyssolutions.com/certus-rivo/_shared_assets/company_logo_small.png");
+    content: url("https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/_shared_assets/company_logo_small.png");
     vertical-align: middle;
     text-align: right;
   }
@@ -128,33 +128,26 @@
     counter-reset: chapter-counter;
   }
 
-  /* ---------- Headings ----------
-     FIX: break-before: page on H1 forces each chapter to a new page.
-     DO NOT add break-after: avoid here — the combination causes
-     WeasyPrint to emit trailing blank pages. */
+  /* ============================================================
+     H1 — Chapter titles
+     FIX for chapter-boundary blanks (pages 11,12,38,44,48,49):
+     The old `break-before: page` on every H1 stacked with mkdocs-with-pdf's
+     own page wrapping, producing 1-2 blank pages between chapters.
+     We now let the plugin control chapter-level page breaks.
+     H1 still sets the running-header string and styles the heading.
+     ============================================================ */
   h1 {
     font-size: 18pt;
     color: #e4312c !important;
     counter-increment: chapter-counter;
     counter-reset: figure-counter;
     string-set: h1_text content(text);
-    break-before: page;
-    page-break-before: always;
+    break-before: auto;
+    page-break-before: auto;
     margin-top: 0;
   }
 
-  /* FIX: The first H1 of the document (right after the cover) must NOT
-     force another page break, or you get a blank page between cover and
-     chapter 1. Covers common mkdocs-with-pdf DOM structures. */
-  #doc-contents > h1:first-of-type,
-  article > h1:first-of-type,
-  main > h1:first-of-type,
-  body > h1:first-of-type {
-    break-before: auto !important;
-    page-break-before: auto !important;
-  }
-
-  /* TOC headings — never force a new page */
+  /* TOC headings — no forced breaks */
   .toc h1,
   #doc-toc h1,
   nav.toc h1 {
@@ -162,7 +155,7 @@
     page-break-before: auto !important;
   }
 
-  /* H2, H3, H4 — keep heading attached to following paragraph */
+  /* H2, H3, H4 — keep heading attached to following content */
   h2 {
     color: #000 !important;
     string-set: h2_text content(text);
@@ -176,30 +169,43 @@
     page-break-after: avoid;
   }
 
-  /* ---------- Cover page ---------- */
-  #doc-cover {
-    page-break-after: always;
-    break-after: page;
-  }
-
-  /* ---------- Tables ---------- */
+  /* ============================================================
+     TABLES
+     FIX for mid-chapter blanks (87, 119, and contributing to others):
+     Allow tables to split across pages. Keep header row visible on each
+     page fragment. Individual rows still stay together.
+     ============================================================ */
   table {
+    break-inside: auto;
     page-break-inside: auto;
     color: #000;
   }
 
-  tr {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  thead {
+    display: table-header-group;
   }
 
-  /* ---------- Images ---------- */
+  tfoot {
+    display: table-footer-group;
+  }
+
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ============================================================
+     IMAGES & FIGURES
+     FIX for mid-chapter blanks (108, 184, 191, 207):
+     Removed `break-inside: avoid` from figure — was forcing blank pages
+     before large figures that couldn't fit in remaining space.
+     ============================================================ */
   .md-typeset img,
   .md-typeset figure img {
     width: auto !important;
     height: auto !important;
     max-width: 90% !important;
-    max-height: 180mm !important;
+    max-height: 160mm !important;
     object-fit: contain !important;
     display: block;
   }
@@ -209,22 +215,24 @@
     margin: 1em 0 !important;
     display: block !important;
     width: fit-content !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
 
   figure figcaption {
     color: #4b5563 !important;
     text-align: center !important;
     margin: 0.25em 0 0 0 !important;
+    break-before: avoid;
+    page-break-before: avoid;
   }
 
-  /* ---------- Admonition containers ---------- */
+  /* ============================================================
+     ADMONITIONS — don't force blank pages for oversized callouts.
+     ============================================================ */
   .md-typeset .admonition,
   .md-typeset details {
     position: relative !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
+    break-inside: auto;
+    page-break-inside: auto;
   }
 
   .md-typeset .admonition > .admonition-title,
@@ -236,6 +244,8 @@
     padding-top: 0.4rem !important;
     padding-bottom: 0.4rem !important;
     line-height: 1.4 !important;
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
   .md-typeset .admonition > .admonition-title::before,
