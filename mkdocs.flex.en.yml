@@ -51,11 +51,9 @@ plugins:
       on_error_fail: false
       include_dir: docs/common_content
 
-  # ✅ FIX: Always enable PDF generation
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
       debug_html: true
-      show_anchors: true
       verbose: true
 
       # -------------------------------------------------------
@@ -64,7 +62,7 @@ plugins:
       output_path: pdf/User_Manual_CERTUS_FLEX_EN.pdf
 
       # -------------------------------------------------------
-      # COVER PAGE (THIS FIXES "None" + CREATES DESIGN)
+      # COVER PAGE
       # -------------------------------------------------------
       cover: true
       back_cover: false
@@ -75,7 +73,7 @@ plugins:
       cover_logo: "_shared_assets/company_logo.png"
 
       # -------------------------------------------------------
-      # METADATA (THIS FIXES EMPTY VALUES)
+      # METADATA
       # -------------------------------------------------------
       metadata:
         title: "User Manual - CERTUS FLEX"
@@ -95,16 +93,13 @@ plugins:
       custom_template_path: docs/configurations/templates/flex-pdf/
 
       # -------------------------------------------------------
-      # Exclude children topics and pages
+      # Exclude pages from the PDF
       # -------------------------------------------------------
-      excludes_children:
-        # Path relative to docs_dir (docs/)
-        - 'flex/en/table_of_figures.md'
       exclude_pages:
-        - '^$'
-        - 'flex/en/release_notes/*.md'
+        - 'en/products/certus-flex/table_of_figures'
+
       # -------------------------------------------------------
-      # showing topic anchors
+      # Show topic anchors
       # -------------------------------------------------------
       show_anchors: true
 
@@ -154,7 +149,6 @@ extra:
   watermark: "SAMPLE"
   page_size: "A4"
 
-  # ✅ Must match output_path above
   pdfDownloadPath: "pdf/User_Manual_CERTUS_FLEX_EN.pdf"
 
 nav:
@@ -173,7 +167,7 @@ nav:
   - Decommissioning and Disposal: en/products/certus-flex/decommissioning_disposal.md
   - References: en/products/certus-flex/references.md
   - Appendix:
-  - Change Index: en/products/certus-flex/appendix_change_index.md
-  - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
-  - Document List: en/products/certus-flex/appendix_document_list.md
-  - Web Control: en/products/certus-flex/appendix_web_control.md
+      - Change Index: en/products/certus-flex/appendix_change_index.md
+      - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
+      - Document List: en/products/certus-flex/appendix_document_list.md
+      - Web Control: en/products/certus-flex/appendix_web_control.md
