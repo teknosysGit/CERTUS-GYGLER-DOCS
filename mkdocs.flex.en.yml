@@ -173,7 +173,7 @@ nav:
   - Decommissioning and Disposal: en/products/certus-flex/decommissioning_disposal.md
   - References: en/products/certus-flex/references.md
   - Appendix:
-      - Change Index: en/products/certus-flex/appendix_change_index.md
-      - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
-      - Document List: en/products/certus-flex/appendix_document_list.md
-      - Web Control: en/products/certus-flex/appendix_web_control.md
+    - Change Index: en/products/certus-flex/appendix_change_index.md
+    - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
+    - Document List: en/products/certus-flex/appendix_document_list.md
+    - Web Control: en/products/certus-flex/appendix_web_control.md
