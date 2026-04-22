@@ -1,10 +1,16 @@
+# -------------------------------------------------------
+# mkdocs.rivo.en.yml -- CERTUS RIVO - English
+#
+# docs_dir: docs  (inherited from mkdocs.base.yml)
+# site_dir: site/rivo/en
+# -------------------------------------------------------
+
 INHERIT: mkdocs.base.yml
 
 site_name: "Certus Knowledgebase - CERTUS RIVO"
 site_description: "User Manual for CERTUS RIVO by Fritz Gyger AG"
 site_url: https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/
-site_dir: site/rivo/en
-use_directory_urls: true
+site_dir: site
 
 theme:
   language: en
@@ -16,10 +22,8 @@ plugins:
       prebuild_index: true
       indexing: full
       min_search_length: 3
-
   - mkdocstrings:
       default_handler: python
-
   - glightbox:
       touchNavigation: true
       loop: false
@@ -34,55 +38,61 @@ plugins:
       background: "#e3e3e3"
       shadow: true
       manual: true
-
   - table-of-figures:
       directive_identifier: 'table-of-figures'
       figure_types:
         - image
         - table
+      custom_templates_path: null
       translations_overrides_path: docs/configurations/javascripts/translations_overrides.json
       caption_identifier_description_separator: ' - '
       sections_breadcrumb_separator: ' > '
-
   - macros:
       include_yaml:
         - variables: docs/data/variables.yaml
         - variables: docs/data/variables.rivo.yaml
       on_error_fail: false
       include_dir: docs/common_content
-
   - with-pdf:
-      enabled_if_env: ENABLE_PDF_EXPORT
-      heading_shift: false
-      output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
       cover: true
-      cover_title: "User Manual"
-      cover_subtitle: "CERTUS RIVO"
-      cover_logo: "_shared_assets/company_logo.png"
-      toc_title: "Table of Contents"
-      toc_level: 3
-      # ordered_chapter_level: 0
+      back_cover: false
+
+      author: Fritz Gyger AG
+      copyright: "© Fritz Gyger AG. All rights reserved."
+      cover_title: User Manual
+      cover_subtitle: With CERTUS CONTROL 2.1.19
       custom_template_path: docs/configurations/templates/rivo-pdf/
+      toc_title: Table of Contents
+      pdf_guide_name: User Manual
+      pdf_product_name: CERTUS RIVO
+      pdf_product_version: V12.0
+
+      heading_shift: false
+      toc_level: 3
+      ordered_chapter_level: 3
       excludes_children:
-        - 'en/products/certus-rivo/table_of_figures.md'
+        - 'rivo/en/table_of_figures.md'
+      exclude_pages:
+        - '^$'
+        - 'rivo/en/release_notes/*.md'
+      output_path: "pdf/User_Manual_CERTUS_RIVO_EN.pdf"
+      #enabled_if_env: ENABLE_PDF_EXPORT
+      show_anchors: true
 
 extra:
   alternate:
     - name: English
-      link: /CERTUS-GYGER-DOCS/certus-rivo/
+      link: /docs/rivo/en/
       lang: en
     - name: Deutsch
-      link: /CERTUS-GYGER-DOCS/certus-flex/
+      link: /docs/rivo/de/
       lang: de
-
-  companyLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/_shared_assets/company_logo_light.png"
-  pdfHeaderLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/_shared_assets/company_logo_small.png"
-
+  companyLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/_shared_assets/company_logo_light.png"
+  pdfHeaderLogoURL: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/_shared_assets/company_logo_small.png"
   ui_labels:
     en:
       print: "Print PDF"
       download: "Download PDF"
-
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/fritz-gyger-ag/
@@ -111,6 +121,9 @@ extra:
   page_size: "A4"
   pdfDownloadPath: "pdf/User_Manual_CERTUS_RIVO_EN.pdf"
 
+# -------------------------------
+# Navigation
+# -------------------------------
 nav:
   - Home: common_content/introduction.md
   - Table of Figures: en/products/certus-rivo/table_of_figures.md
