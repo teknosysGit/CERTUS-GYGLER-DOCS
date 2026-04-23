@@ -58,6 +58,22 @@
 
   }
 
+  /* Avoid double page breaks at chapter boundaries.
+     When H1 is already the first element of its container (because
+     mkdocs-with-pdf wraps each nav page in a section and starts a new
+     page), forcing another break-before creates a blank page.
+     These selectors override that. */
+  section > h1:first-child,
+  article > h1:first-child,
+  div > h1:first-child,
+  .page > h1:first-child,
+  body > h1:first-child,
+  #doc-contents > section > h1:first-child,
+  #doc-contents > article > h1:first-child {
+    break-before: avoid !important;
+    page-break-before: avoid !important;
+  }
+
   h2 {
     counter-increment: h2;
     /* Capture latest H2 text */
