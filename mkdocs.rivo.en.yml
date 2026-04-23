@@ -96,13 +96,10 @@ plugins:
       custom_template_path: docs/configurations/templates/rivo-pdf/
 
       # -------------------------------------------------------
-      # Exclude children topics and pages
+      # Exclude pages from the PDF
       # -------------------------------------------------------
-      excludes_children:
-        - 'rivo/en/table_of_figures.md'
       exclude_pages:
-        - '^$'
-        - 'rivo/en/release_notes/*.md'
+        - 'en/products/certus-flex/table_of_figures'
 
 extra:
   alternate:
@@ -164,9 +161,8 @@ nav:
   - Maintenance: en/products/certus-rivo/maintenance.md
   - Decommissioning: en/products/certus-rivo/decommissioning_disposal.md
   - Start-Up: en/products/certus-rivo/start_up.md
-  - Appendix:
-    - Change Index: en/products/certus-rivo/appendix_change_index.md
-    - Document List: en/products/certus-rivo/appendix_document_list.md
-    - Web Control: en/products/certus-rivo/appendix_web_control.md
-    - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
-    - Glossary: common_content/glossary.md
+  - Change Index: en/products/certus-rivo/appendix_change_index.md
+  - Document List: en/products/certus-rivo/appendix_document_list.md
+  - Web Control: en/products/certus-rivo/appendix_web_control.md
+  - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
+  - Glossary: common_content/glossary.md
