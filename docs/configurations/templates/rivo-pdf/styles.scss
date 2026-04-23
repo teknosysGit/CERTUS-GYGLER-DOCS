@@ -173,12 +173,19 @@
       border-bottom-color: #000 !important;
   }
   
-  /* ── Admonition container ─────────────────────────────────────────────── */
+  /* ── Admonition container ───────────────────────────────────────────────
+     FIX for mid-chapter blank pages: changed `break-inside: avoid` to
+     `break-inside: auto` so admonitions can split across pages when they're
+     too tall to fit in the remaining space. Previously, a tall admonition
+     near the bottom of a page would get pushed to the next page, leaving
+     the current page blank. Now it can start where it is and continue on
+     the next page.                                                         */
 
   .md-typeset .admonition,
   .md-typeset details {
     position: relative !important;
-    break-inside: avoid;
+    break-inside: auto;
+    page-break-inside: auto;
   }
 
   .md-typeset .admonition > .admonition-title,
@@ -191,6 +198,9 @@
     padding-top:    0.4rem    !important;
     padding-bottom: 0.4rem    !important;
     line-height:    1.4       !important;
+    /* Keep the title attached to the first line of content */
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
   .md-typeset .admonition > .admonition-title::before,
