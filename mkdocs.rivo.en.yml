@@ -99,7 +99,7 @@ plugins:
       # Exclude pages from the PDF
       # -------------------------------------------------------
       exclude_pages:
-        - 'en/products/certus-flex/table_of_figures'
+        - 'en/products/certus-rivo/table_of_figures'
 
 extra:
   alternate:
