@@ -3,7 +3,6 @@ INHERIT: mkdocs.base.yml
 site_name: "Certus Knowledgebase - CERTUS FLEX"
 site_description: "User Manual for CERTUS FLEX by Fritz Gyger AG"
 site_url: https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/
-site_dir: site/flex/en
 use_directory_urls: true
 
 theme:
@@ -50,58 +49,6 @@ plugins:
         - variables: docs/data/variables.flex.yaml
       on_error_fail: false
       include_dir: docs/common_content
-
-  - with-pdf:
-      enabled_if_env: ENABLE_PDF_EXPORT
-      debug_html: true
-      verbose: true
-
-      # -------------------------------------------------------
-      # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
-      # -------------------------------------------------------
-      output_path: pdf/User_Manual_CERTUS_FLEX_EN.pdf
-
-      # -------------------------------------------------------
-      # COVER PAGE
-      # -------------------------------------------------------
-      cover: true
-      back_cover: false
-      author: Fritz Gyger AG
-      copyright: "© Fritz Gyger AG. All rights reserved."
-      cover_title: "User Manual"
-      cover_subtitle: "CERTUS FLEX"
-      cover_logo: "_shared_assets/company_logo.png"
-
-      # -------------------------------------------------------
-      # METADATA
-      # -------------------------------------------------------
-      metadata:
-        title: "User Manual - CERTUS FLEX"
-        author: "Fritz Gyger AG"
-        subject: "CERTUS FLEX Documentation"
-
-      # -------------------------------------------------------
-      # PDF STRUCTURE SETTINGS
-      # -------------------------------------------------------
-      toc_title: "Table of Contents"
-      toc_level: 3
-      ordered_chapter_level: 3
-
-      # -------------------------------------------------------
-      # Custom Template Path
-      # -------------------------------------------------------
-      custom_template_path: docs/configurations/templates/flex-pdf/
-
-      # -------------------------------------------------------
-      # Exclude pages from the PDF
-      # -------------------------------------------------------
-      exclude_pages:
-        - 'en/products/certus-flex/table_of_figures'
-
-      # -------------------------------------------------------
-      # Show topic anchors
-      # -------------------------------------------------------
-      show_anchors: true
 
 extra:
   alternate:
