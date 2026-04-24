@@ -1,0 +1,56 @@
+INHERIT: mkdocs.base.yml
+
+site_name: "Certus Knowledgebase - CERTUS FLEX (PDF)"
+site_description: "User Manual for CERTUS FLEX by Fritz Gyger AG"
+site_url: "https://certus-docs.github.io/gyger-documentation/certus-flex/"
+site_dir: site/pdf/flex/en
+use_directory_urls: true
+
+theme:
+  language: en
+
+plugins:
+  - search
+
+  - with-pdf:
+      enabled_if_env: ENABLE_PDF_EXPORT
+      output_path: pdf/User_Manual_CERTUS_FLEX_EN.pdf
+
+      cover: true
+      cover_title: "User Manual"
+      cover_subtitle: "CERTUS FLEX"
+      cover_logo: "_shared_assets/company_logo.png"
+
+      metadata:
+        title: "User Manual - CERTUS FLEX"
+        author: "Fritz Gyger AG"
+        subject: "CERTUS FLEX Documentation"
+
+      toc_title: "Table of Contents"
+      toc_level: 3
+      ordered_chapter_level: 3
+
+      custom_template_path: docs/configurations/templates/flex-pdf/
+
+extra:
+  pdfDownloadPath: "pdf/User_Manual_CERTUS_FLEX_EN.pdf"
+
+nav:
+  - Home: common_content/introduction.md
+  - About this Documentation: en/products/certus-flex/about_this_document.md
+  - Safety: en/products/certus-flex/safety.md
+  - Transportation and Storage: en/products/certus-flex/transportation_storage.md
+  - Dimensions: en/products/certus-flex/specifications_dimensions.md
+  - Device Data: en/products/certus-flex/specifications_device_data.md
+  - Start Up: en/products/certus-flex/start_up.md
+  - Assembly and Operation: en/products/certus-flex/assembly_and_operation.md
+  - Operations: en/products/certus-flex/operations.md
+  - Certus Control: en/products/certus-flex/certus_controls.md
+  - Maintenance: en/products/certus-flex/maintenance.md
+  - Troubleshooting: en/products/certus-flex/troubleshooting.md
+  - Decommissioning and Disposal: en/products/certus-flex/decommissioning_disposal.md
+  - References: en/products/certus-flex/references.md
+  - Change Index: en/products/certus-flex/appendix_change_index.md
+  - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
+  - Document List: en/products/certus-flex/appendix_document_list.md
+  - Web Control: en/products/certus-flex/appendix_web_control.md
