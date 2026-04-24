@@ -9,6 +9,12 @@ theme:
 
 plugins:
   - search
+  - macros:
+      include_yaml:
+        - variables: docs/data/variables.yaml
+        - variables: docs/data/variables.flex.yaml
+      on_error_fail: false
+      include_dir: docs/common_content
 
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
