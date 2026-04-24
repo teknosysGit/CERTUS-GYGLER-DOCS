@@ -51,8 +51,12 @@ jobs:
 
       # ✅ PDF BUILDS (flattened nav)
       - name: Build Certus Flex PDF
-        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.pdf.en.yml -d site/certus-flex
-
+        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.pdf.en.yml -d site/pdf/flex
+      - name: Copy PDF into site
+        run: | 
+          mkdir -p site/certus-flex/pdf
+          cp site/pdf/flex/pdf/*.pdf site/certus-flex/pdf/
+          
       # - name: Build Certus Rivo PDF
       #   run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.rivo.pdf.en.yml -d site/pdf/rivo
 
