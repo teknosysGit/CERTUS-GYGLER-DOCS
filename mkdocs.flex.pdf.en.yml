@@ -1,10 +1,9 @@
 INHERIT: mkdocs.base.yml
 
 site_name: "Certus Knowledgebase - CERTUS FLEX (PDF)"
-site_description: "User Manual for CERTUS FLEX by Fritz Gyger AG"
-site_url: "https://certus-docs.github.io/gyger-documentation/certus-flex/"
-site_dir: site/pdf/flex/en
-use_directory_urls: true
+site_url: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/"
+
+site_dir: site/pdf/flex
 
 theme:
   language: en
@@ -24,11 +23,9 @@ plugins:
       metadata:
         title: "User Manual - CERTUS FLEX"
         author: "Fritz Gyger AG"
-        subject: "CERTUS FLEX Documentation"
 
       toc_title: "Table of Contents"
       toc_level: 3
-      ordered_chapter_level: 3
 
       custom_template_path: docs/configurations/templates/flex-pdf/
 
