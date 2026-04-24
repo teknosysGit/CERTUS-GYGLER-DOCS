@@ -2,7 +2,6 @@ INHERIT: mkdocs.base.yml
 
 site_name: "Certus Knowledgebase - CERTUS FLEX (PDF)"
 site_url: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-flex/"
-
 site_dir: site/pdf/flex
 
 theme:
