@@ -50,6 +50,11 @@ plugins:
       on_error_fail: false
       include_dir: docs/common_content
 
+# ❗ IMPORTANT FIX — BLOCK PDF ENV LEAK
+  - macros:
+      on_env:
+        ENABLE_PDF_EXPORT: "0"
+
 extra:
   alternate:
     - name: English
@@ -85,16 +90,6 @@ extra:
   sharedAssetsFolder: _shared_assets
 
   helpSiteName: "Certus Knowledgebase Site"
-  pdfGuideName: "User Manual"
-  pdfProductName: "CERTUS FLEX"
-  pdfProductSubtitle: "with CERTUS CONTROL 2.1.19"
-  pdfVersion: "v12.0"
-  pdfPublishingDate: "February 2026"
-
-  company: "Fritz Gyger AG"
-  company_logo_url: "_shared_assets/company_logo.png"
-  watermark: "SAMPLE"
-  page_size: "A4"
 
   pdfDownloadPath: "pdf/User_Manual_CERTUS_FLEX_EN.pdf"
 
