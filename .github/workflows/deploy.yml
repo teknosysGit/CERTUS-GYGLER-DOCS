@@ -1,13 +1,17 @@
 name: Build and Deploy Docs
+
 on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -34,32 +38,23 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install mkdocs
-          pip install mkdocs-material
-          pip install mkdocstrings
-          pip install mkdocs-glightbox
-          pip install mkdocs-table-of-figures
-          pip install mkdocs-macros-plugin
-          pip install mkdocs-with-pdf
-          pip install ghp-import
+          pip install mkdocs mkdocs-material mkdocstrings \
+          mkdocs-glightbox mkdocs-table-of-figures \
+          mkdocs-macros-plugin mkdocs-with-pdf ghp-import
 
-      - name: Fix shared assets paths
-        run: |
-          find docs/en/products/certus-flex/ -name "*.md" -exec sed -i 's|../../../_shared_assets/|http://mkdocsdemo.teknosyssolutions.com/certus-flex/_shared_assets/|g' {} \;
-          find docs/en/products/certus-rivo/ -name "*.md" -exec sed -i 's|../../../_shared_assets/|http://mkdocsdemo.teknosyssolutions.com/certus-rivo/_shared_assets/|g' {} \;
+      # ✅ SITE BUILDS (nested nav)
+      - name: Build Certus Flex (Site)
+        run: python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
 
-      - name: Build Certus Flex
-        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.en.yml -d site/certus-flex
+      - name: Build Certus Rivo (Site)
+        run: python -m mkdocs build -f mkdocs.rivo.en.yml -d site/certus-rivo
 
-      - name: Build Certus Rivo
-        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.rivo.en.yml -d site/certus-rivo
+      # ✅ PDF BUILDS (flattened nav)
+      - name: Build Certus Flex PDF
+        run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs.flex.pdf.en.yml -d site/pdf/flex
 
-      - name: Upload Certus Rivo build
-        uses: actions/upload-artifact@v4
-        with:
-          name: certus-rivo-build
-          path: site/certus-rivo/
-          retention-days: 7
+      #- name: Build Certus Rivo PDF
+      #  run: ENABLE_PDF_EXPORT=1 python -m mkdocs build -f mkdocs-pdf.rivo.yml -d site/pdf/rivo
 
       - name: Generate combined index
         run: |
@@ -70,11 +65,6 @@ jobs:
           <head>
             <meta charset="utf-8">
             <title>Certus Documentation</title>
-            <style>
-              body { font-family: sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px }
-              a { display: block; padding: 16px; margin: 12px 0; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: #333; font-size: 18px }
-              a:hover { background: #f5f5f5 }
-            </style>
           </head>
           <body>
             <h1>Certus Documentation</h1>
