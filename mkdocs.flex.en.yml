@@ -153,36 +153,33 @@ extra:
 
 nav:
   - Home: common_content/introduction.md
-
-  - Introduction:
-      - About this Documentation: en/products/certus-flex/about_this_document.md
-      - Safety: en/products/certus-flex/safety.md
-      - Transportation and Storage: en/products/certus-flex/transportation_storage.md
-
   - Table of Figures: en/products/certus-flex/table_of_figures.md
-
-  - Technical Specifications:
-      - Dimensions: en/products/certus-flex/specifications_dimensions.md
-      - Device Data: en/products/certus-flex/specifications_device_data.md
-
-  - Installation and Setup:
-      - Start Up: en/products/certus-flex/start_up.md
-      - Assembly and Operation: en/products/certus-flex/assembly_and_operation.md
-
-  - Operation:
-      - Operations: en/products/certus-flex/operations.md
-      - Certus Control: en/products/certus-flex/certus_controls.md
-
-  - Maintenance and Support:
-      - Maintenance: en/products/certus-flex/maintenance.md
-      - Troubleshooting: en/products/certus-flex/troubleshooting.md
-      - Decommissioning and Disposal: en/products/certus-flex/decommissioning_disposal.md
-
-  - References:
-      - References: en/products/certus-flex/references.md
-
-  - Appendix:
-      - Change Index: en/products/certus-flex/appendix_change_index.md
-      - Document List: en/products/certus-flex/appendix_document_list.md
-      - Web Control: en/products/certus-flex/appendix_web_control.md
-      - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
+  - Products:
+      - Certus Flex:
+          - About this Document: en/products/certus-flex/about_this_document.md
+          - Safety: en/products/certus-flex/safety.md
+          - Transportation and Storage:
+              - Transportation: en/products/certus-flex/transportation_storage.md
+          - Technical Specifications:
+              - Dimensions: en/products/certus-flex/specifications_dimensions.md
+              - Device Data: en/products/certus-flex/specifications_device_data.md
+          - Assembly and Operation:
+              - Assembly: en/products/certus-flex/assembly_and_operation.md
+          - Certus Control:
+              - Certus Control: en/products/certus-flex/certus_controls.md
+          - Operation:
+              - Operation: en/products/certus-flex/operations.md
+          - Troubleshooting:
+              - Troubleshooting: en/products/certus-flex/troubleshooting.md
+          - Maintenance:
+              - Maintenance: en/products/certus-flex/maintenance.md
+          - Decommissioning:
+              - Decommissioning: en/products/certus-flex/decommissioning_disposal.md
+          - Start-Up:
+              - Start Up: en/products/certus-flex/start_up.md
+          - Appendix:
+              - Change Index: en/products/certus-flex/appendix_change_index.md
+              - Document List: en/products/certus-flex/appendix_document_list.md
+              - Web Control: en/products/certus-flex/appendix_web_control.md
+              - Decontamination Declaration: en/products/certus-flex/appendix_decontamination_declaration.md
+              - Glossary: common_content/glossary.md
