@@ -59,14 +59,8 @@ plugins:
       show_anchors: true
       verbose: true
 
-      # -------------------------------------------------------
-      # OUTPUT FILE (MUST MATCH pdfDownloadPath + JS)
-      # -------------------------------------------------------
       output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
 
-      # -------------------------------------------------------
-      # COVER PAGE
-      # -------------------------------------------------------
       cover: true
       back_cover: false
       author: Fritz Gyger AG
@@ -75,31 +69,19 @@ plugins:
       cover_subtitle: "CERTUS RIVO"
       cover_logo: "_shared_assets/company_logo.png"
 
-      # -------------------------------------------------------
-      # METADATA
-      # -------------------------------------------------------
       metadata:
         title: "User Manual - CERTUS RIVO"
         author: "Fritz Gyger AG"
         subject: "CERTUS RIVO Documentation"
 
-      # -------------------------------------------------------
-      # PDF STRUCTURE SETTINGS
-      # -------------------------------------------------------
       toc_title: "Table of Contents"
       toc_level: 3
       ordered_chapter_level: 3
 
-      # -------------------------------------------------------
-      # Custom Template Path
-      # -------------------------------------------------------
       custom_template_path: docs/configurations/templates/rivo-pdf/
 
-      # -------------------------------------------------------
-      # Exclude pages from the PDF
-      # -------------------------------------------------------
       exclude_pages:
-        - 'en/products/certus-rivo/table_of_figures'
+        - en/products/certus-rivo/table_of_figures
 
 extra:
   alternate:
@@ -148,33 +130,33 @@ extra:
 # -------------------------------
 nav:
   - Home: common_content/introduction.md
-    - Table of Figures: en/products/certus-rivo/table_of_figures.md
-    - Products:
-        - Rivo:
-            - About this Document: en/products/certus-rivo/about_this_document.md
-            - Safety: en/products/certus-rivo/safety.md
-            - Transportation and Storage:
-                - Transportation: en/products/certus-rivo/transportation_storage.md
-            - Technical Specifications:
-                - Dimensions: en/products/certus-rivo/specifications_dimensions.md
-                - Device Data: en/products/certus-rivo/specifications_device_data.md
-            - Assembly and Operation:
-                - Assembly: en/products/certus-rivo/assembly_and_operation.md
-            - Rivo Control:
-                - Rivo Control: en/products/certus-rivo/certus_controls.md
-            - Operation:
-                - Operation: en/products/certus-rivo/operations.md
-            - Troubleshooting:
-                - Troubleshooting: en/products/certus-rivo/troubleshooting.md
-            - Maintenance:
-                - Maintenance: en/products/certus-rivo/maintenance.md
-            - Decommissioning:
-                - Decommissioning: en/products/certus-rivo/decommissioning_disposal.md
-            - Start-Up:
-                - Start-Up: en/products/certus-rivo/start_up.md
-            - Appendix:
-                - Change Index: en/products/certus-rivo/appendix_change_index.md
-                - Document List: en/products/certus-rivo/appendix_document_list.md
-                - Web Control: en/products/certus-rivo/appendix_web_control.md
-                - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
-                - Glossary: common_content/glossary.md
+  - Table of Figures: en/products/certus-rivo/table_of_figures.md
+  - Products:
+      - Rivo:
+          - About this Document: en/products/certus-rivo/about_this_document.md
+          - Safety: en/products/certus-rivo/safety.md
+          - Transportation and Storage:
+              - Transportation: en/products/certus-rivo/transportation_storage.md
+          - Technical Specifications:
+              - Dimensions: en/products/certus-rivo/specifications_dimensions.md
+              - Device Data: en/products/certus-rivo/specifications_device_data.md
+          - Assembly and Operation:
+              - Assembly: en/products/certus-rivo/assembly_and_operation.md
+          - Rivo Control:
+              - Rivo Control: en/products/certus-rivo/certus_controls.md
+          - Operation:
+              - Operation: en/products/certus-rivo/operations.md
+          - Troubleshooting:
+              - Troubleshooting: en/products/certus-rivo/troubleshooting.md
+          - Maintenance:
+              - Maintenance: en/products/certus-rivo/maintenance.md
+          - Decommissioning:
+              - Decommissioning: en/products/certus-rivo/decommissioning_disposal.md
+          - Start-Up:
+              - Start-Up: en/products/certus-rivo/start_up.md
+          - Appendix:
+              - Change Index: en/products/certus-rivo/appendix_change_index.md
+              - Document List: en/products/certus-rivo/appendix_document_list.md
+              - Web Control: en/products/certus-rivo/appendix_web_control.md
+              - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
+              - Glossary: common_content/glossary.md
