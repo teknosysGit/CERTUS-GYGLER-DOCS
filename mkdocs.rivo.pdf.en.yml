@@ -1,0 +1,58 @@
+INHERIT: mkdocs.base.yml
+
+site_name: "Certus Knowledgebase - CERTUS RIVO (PDF)"
+site_url: "https://teknosysgit.github.io/CERTUS-GYGER-DOCS/certus-rivo/"
+site_dir: site/pdf/rivo
+
+theme:
+  language: en
+
+plugins:
+  - search
+  - macros:
+      include_yaml:
+        - variables: docs/data/variables.yaml
+        - variables: docs/data/variables.rivo.yaml
+      on_error_fail: false
+      include_dir: docs/common_content
+
+  - with-pdf:
+      enabled_if_env: ENABLE_PDF_EXPORT
+      output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
+
+      cover: true
+      cover_title: "User Manual"
+      cover_subtitle: "CERTUS RIVO"
+      cover_logo: "_shared_assets/company_logo.png"
+
+      metadata:
+        title: "User Manual - CERTUS RIVO"
+        author: "Fritz Gyger AG"
+
+      toc_title: "Table of Contents"
+      toc_level: 3
+
+      custom_template_path: docs/configurations/templates/rivo-pdf/
+
+extra:
+  pdfDownloadPath: "pdf/User_Manual_CERTUS_RIVO_EN.pdf"
+
+nav:
+  - Home: common_content/introduction.md
+  - About this Documentation: en/products/certus-rivo/about_this_document.md
+  - Safety: en/products/certus-rivo/safety.md
+  - Transportation and Storage: en/products/certus-rivo/transportation_storage.md
+  - Dimensions: en/products/certus-rivo/specifications_dimensions.md
+  - Device Data: en/products/certus-rivo/specifications_device_data.md
+  - Start Up: en/products/certus-rivo/start_up.md
+  - Assembly and Operation: en/products/certus-rivo/assembly_and_operation.md
+  - Operations: en/products/certus-rivo/operations.md
+  - Certus Control: en/products/certus-rivo/certus_controls.md
+  - Maintenance: en/products/certus-rivo/maintenance.md
+  - Troubleshooting: en/products/certus-rivo/troubleshooting.md
+  - Decommissioning and Disposal: en/products/certus-rivo/decommissioning_disposal.md
+  - References: en/products/certus-rivo/references.md
+  - Change Index: en/products/certus-rivo/appendix_change_index.md
+  - Decontamination Declaration: en/products/certus-rivo/appendix_decontamination_declaration.md
+  - Document List: en/products/certus-rivo/appendix_document_list.md
+  - Web Control: en/products/certus-rivo/appendix_web_control.md
