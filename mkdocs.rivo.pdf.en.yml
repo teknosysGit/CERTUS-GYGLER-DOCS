@@ -15,23 +15,18 @@ plugins:
         - variables: docs/data/variables.rivo.yaml
       on_error_fail: false
       include_dir: docs/common_content
-
   - with-pdf:
       enabled_if_env: ENABLE_PDF_EXPORT
       output_path: pdf/User_Manual_CERTUS_RIVO_EN.pdf
-
       cover: true
       cover_title: "User Manual"
       cover_subtitle: "CERTUS RIVO"
       cover_logo: "_shared_assets/company_logo.png"
-
       metadata:
         title: "User Manual - CERTUS RIVO"
         author: "Fritz Gyger AG"
-
       toc_title: "Table of Contents"
       toc_level: 3
-
       custom_template_path: docs/configurations/templates/rivo-pdf/
 
 extra:
